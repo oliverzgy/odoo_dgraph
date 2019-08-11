@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="80"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="odoo_dgraph" string="Dgraph" data-key="odoo_dgraph" groups="">
+                    <h2>Primary Dgraph Server</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label string="Host" for="master_graph_db_url" class="col-md-3 o_light_label"/>
+                                        <field name="master_graph_db_url"/>
+                                    </div>
+                                    <div class="row">
+                                        <label string="User" for="master_graph_db_account" class="col-md-3 o_light_label"/>
+                                        <field name="master_graph_db_account"/>
+                                    </div>
+                                    <div class="row">
+                                        <label string="Pass" for="master_graph_db_password" class="col-md-3 o_light_label"/>
+                                        <field name="master_graph_db_password" password="True"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Secondary Dgraph Server</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label string="Host" for="slave_graph_db_url" class="col-md-3 o_light_label"/>
+                                        <field name="slave_graph_db_url"/>
+                                    </div>
+                                    <div class="row">
+                                        <label string="User" for="slave_graph_db_account" class="col-md-3 o_light_label"/>
+                                        <field name="slave_graph_db_account"/>
+                                    </div>
+                                    <div class="row">
+                                        <label string="Pass" for="slave_graph_db_password" class="col-md-3 o_light_label"/>
+                                        <field name="slave_graph_db_password" password="True"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="dgraph_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'odoo_dgraph'}</field>
+    </record>
+
+    <menuitem id="menu_dgraph_setting"
+        name="Settings"
+        parent="menu_dgraph_root"
+        sequence="0"
+        action="dgraph_config_settings_action"
+        groups="base.group_system"/>
+</odoo>

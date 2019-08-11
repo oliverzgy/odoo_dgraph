@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id="view_graph_index_tree" model="ir.ui.view">
+            <field name="name">view.graph.index.tree</field>
+            <field name="model">graph.index</field>
+            <field name="arch" type="xml">
+                <tree string="Graph Index">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                    <button name="action_set_graph_db_schema" type="object" string="Set Schema"
+                            class="btn btn-primary"/>
+
+                    <button name="action_add_graph_db_data" type="object" string="Add Data"
+                            class="btn btn-primary"/>
+
+                    <button name="action_update_graph_db_schema" type="object" string="Update Data"
+                            class="btn btn-primary"/>
+
+                    <button name="action_drop_graph_db_schema" type="object" string="Drop Schema"
+                            class="btn"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_graph_index_form" model="ir.ui.view">
+            <field name="name">view.graph.index.form</field>
+            <field name="model">graph.index</field>
+            <field name="arch" type="xml">
+                <form string="Graph Index">
+                    <header>
+                        <button name="action_set_graph_db_schema" type="object" string="Set Schema"
+                            class="btn btn-primary"/>
+
+                        <button name="action_add_graph_db_data" type="object" string="Add Data"
+                            class="btn btn-primary"/>
+
+                        <button name="action_update_graph_db_schema" type="object" string="Update Data"
+                                class="btn btn-primary"/>
+
+                        <button name="action_drop_graph_db_schema" type="object" string="Drop Schema"
+                                class="btn"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_graph_index" model="ir.actions.act_window">
+            <field name="name">Graph Index</field>
+            <field name="res_model">graph.index</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_graph_index" name="Graph Index" action="action_graph_index"
+                  parent="menu_dgraph_root"
+                  groups="base.group_system"/>
+
+    </data>
+</odoo>

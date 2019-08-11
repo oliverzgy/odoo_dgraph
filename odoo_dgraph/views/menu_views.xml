@@ -1,0 +1,6 @@
+<odoo>
+  <data>
+    <menuitem name="Dgraph" id="menu_dgraph_root" web_icon="odoo_dgraph,static/description/icon.png" sequence="80"/>
+    <menuitem name="Configuration" id="menu_dgraph_configuration" parent="menu_dgraph_root" sequence="90"/>
+  </data>
+</odoo>
