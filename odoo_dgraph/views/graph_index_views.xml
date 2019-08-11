@@ -63,7 +63,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_graph_index" name="Graph Index" action="action_graph_index"
+        <menuitem id="menu_graph_index" name="Graph" action="action_graph_index"
                   parent="menu_dgraph_root"
                   groups="base.group_system" sequence="10"/>
 
