@@ -65,7 +65,7 @@
 
         <menuitem id="menu_graph_index" name="Graph Index" action="action_graph_index"
                   parent="menu_dgraph_root"
-                  groups="base.group_system"/>
+                  groups="base.group_system" sequence="10"/>
 
     </data>
 </odoo>
