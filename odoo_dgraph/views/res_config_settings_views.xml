@@ -69,7 +69,7 @@
 
     <menuitem id="menu_dgraph_setting"
         name="Settings"
-        parent="menu_dgraph_root"
+        parent="menu_dgraph_configuration"
         sequence="0"
         action="dgraph_config_settings_action"
         groups="base.group_system"/>
